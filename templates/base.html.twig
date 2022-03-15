@@ -42,14 +42,16 @@
                 <li class="nav-item">
                     <a class="nav-link {{ app.request.get('_route') == 'app_home' ? 'active' : '' }}" href="{{ path('app_home') }}">Home <span class="sr-only">Home page</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ app.request.get('_route') == 'app_register' ? 'active' : '' }}" href="{{ path('app_register') }}">Register <span class="sr-only">Create a new account</span></a>
-                </li>
             </ul>
-            <form class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <div>
+                {% if app.user %}
+                    <a href="#" class="btn btn-outline-light">My account</a>
+                    <a href="{{ path('app_logout') }}" class="text-white ml-3">Logout</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}" class="text-white mr-3">Login</a>
+                    <a href="{{ path('app_register') }}" class="btn btn-primary">Signup</a>
+                {% endif %}
+            </div>
         </div>
     </nav>
 </header>
