@@ -45,7 +45,7 @@
             </ul>
             <div>
                 {% if app.user %}
-                    <a href="#" class="btn btn-outline-light">My account</a>
+                    <a href="{{ path('app_account') }}" class="btn btn-outline-light">My account</a>
                     <a href="{{ path('app_logout') }}" class="text-white ml-3">Logout</a>
                 {% else %}
                     <a href="{{ path('app_login') }}" class="text-white mr-3">Login</a>

@@ -1,0 +1,7 @@
+{% extends 'account/base.html.twig' %}
+
+{% block title %}My Account | sf-ecommerce!{% endblock %}
+
+{% block mainContent %}
+    <h2>Hello {{ app.user.firstname | upper }}</h2>
+{% endblock %}
