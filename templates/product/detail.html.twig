@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{product.name}} | sf-ecommerce{% endblock %}
+
+{% block content %}
+    <h1>Product details</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-5">
+            <img 
+                class="img-fluid" 
+                src='{{ asset("uploads/products/#{product.illustration}") }}' 
+                alt="{{ product.name }} image"
+            />
+        </div>
+        <div class="col-md-7 my-auto">
+          <h2 class="card-title">{{product.name}}</h2>
+          <p>{{product.description}}</p>
+          <h3>{{ (product.price / 100) | number_format(2) }}€</h3>
+        </div>
+    </div>
+{% endblock %}

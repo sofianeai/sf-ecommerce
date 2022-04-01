@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Our products | sf-ecommerce{% endblock %}
+
+{% block content %}
+    <h1>List of our products</h1>
+    <hr>
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <a href="{{ path('app_product', { slug: product.slug }) }}">
+                        <img 
+                            class="card-img-top" 
+                            src='{{ asset("uploads/products/#{product.illustration}") }}' 
+                            alt="Card image cap"
+                        />
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <p class="card-text">{{product.subtitle}}</p>
+                        <span class="font-weight-bold">{{ (product.price / 100) | number_format(2) }}€</span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
