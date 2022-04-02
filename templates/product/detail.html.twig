@@ -14,9 +14,17 @@
             />
         </div>
         <div class="col-md-7 my-auto">
-          <h2 class="card-title">{{product.name}}</h2>
-          <p>{{product.description}}</p>
-          <h3>{{ (product.price / 100) | number_format(2) }}€</h3>
+            <h2 class="card-title">{{product.name}}</h2>
+            <p>{{ product.subtitle }}</p>
+            <h3>{{ (product.price / 100) | number_format(2) }}€</h3>
+            <hr>
+            <p>{{product.description}}</p>
+            <a 
+                href="{{ path('app_cart_add_item', { productId: product.id })}}" 
+                class="btn btn-outline-dark"
+            >
+                Add to cart
+            </a>
         </div>
     </div>
 {% endblock %}

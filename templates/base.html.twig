@@ -44,6 +44,12 @@
                 </li>
             </ul>
             <div>
+                <a 
+                    class="{{ app.request.get('_route') == 'app_cart' ? 'text-white' : 'text-muted'}} mr-3" 
+                    href="{{ path('app_cart') }}"
+                >
+                    <i class="text-white fa-solid fa-cart-shopping"></i>
+                </a>
                 {% if app.user %}
                     <a href="{{ path('app_account') }}" class="btn btn-outline-light">My account</a>
                     <a href="{{ path('app_logout') }}" class="text-white ml-3">Logout</a>
@@ -125,6 +131,8 @@
     </footer>
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<!-- Get your own fontawesome kit from: https://fontawesome.com -->
+<script src="https://kit.fontawesome.com/c5afde01af.js" crossorigin="anonymous"></script>
 <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
 </body>
 </html>
