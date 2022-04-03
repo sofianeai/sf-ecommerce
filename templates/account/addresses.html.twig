@@ -1,0 +1,41 @@
+{% extends 'account/base.html.twig' %}
+
+{% block title %}My addresses | sf-ecommerce{% endblock %}
+
+{% block mainContent %}
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">My addresses</h1>
+        <a href="{{ path('app_account_addresses_add') }}" class="btn btn-info">Add a new address</a>
+    </div>
+    {% if app.user.addresses|length > 0 %}
+        <div class="row">
+            {% for address in app.user.addresses %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ address.name }}</h5>
+                            <p class="card-text">
+                                {{ address.address }} <br/>
+                                {{ address.postalCode }} - {{ address.city }} - {{ address.country }}
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a 
+                                href="{{ path('app_account_addresses_edit', { id: address.id }) }}" 
+                                class="text-info"
+                            >Update</a> | 
+                            <a 
+                                href="{{ path('app_account_addresses_delete', { id: address.id }) }}" 
+                                class="text-danger"
+                            >Delete</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div>
+            <p>You don't have any addresses associated with your account. <a href="{{ path('app_account_addresses_add') }}">Add one</a>.</p>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -7,7 +7,7 @@
     <div class="position-sticky pt-3">
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link {{ app.request.get('_route') == 'app_account' ? 'active' : '' }}" aria-current="page" href="{{ path('app_account') }}">
+          <a class="nav-link {{ app.request.get('_route') == 'app_account' ? 'active' : '' }}" href="{{ path('app_account') }}">
             Dashboard
           </a>
         </li>
@@ -19,6 +19,11 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ path('app_account_password') }}">
             Password
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_account_addresses') }}">
+            Addresses
           </a>
         </li>
         <li class="nav-item">
